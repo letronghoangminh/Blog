@@ -7,7 +7,7 @@ const generalRoutes = require("./routes/GeneralRoute");
 
 const app = express();
 
-let mongodbURI = "******************************************************************";
+let mongodbURI = "mongodb+srv://root:root@cluster0.8g2jv.mongodb.net/BlogDatabase?retryWrites=true&w=majority";
 if (process.env.MONGODB_URL) {
   mongodbURI = process.env.MONGODB_URL;
 }
