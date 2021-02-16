@@ -7,13 +7,19 @@ const generalRoutes = require("./routes/GeneralRoute");
 
 const app = express();
 
-let mongodbURI =
-  "mongodb+srv://root:root@cluster0.8g2jv.mongodb.net/BlogDatabase?retryWrites=true&w=majority";
+let mongodbURI = "mongodb+srv://root:root@cluster0.8g2jv.mongodb.net/BlogDatabase?retryWrites=true&w=majority";
+if (process.env.MONGODB_URL) {
+  mongodbURI = process.env.MONGODB_URL;//mongodb+srv://root:root@cluster0.8g2jv.mongodb.net/BlogDatabase?retryWrites=true&w=majority
+}
 
 mongoose
   .connect(mongodbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => {
-    app.listen(3000);
+    let port = process.env.PORT;
+    if (port == null || port == "") {
+      port = 8000;
+    }
+    app.listen(port);
   })
   .catch((err) => {
     console.log(err);
