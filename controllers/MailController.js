@@ -5,7 +5,7 @@ let sendMail = function (to) {
     service: "gmail",
     auth: {
       user: "codeforcesitachi@gmail.com",
-      pass: "ken22092002",
+      pass: "*********",
     },
   });
 
