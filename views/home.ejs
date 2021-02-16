@@ -5,19 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="/public/partial.css" />
+    <link rel="stylesheet" href="/public/partial.css">
     <link rel="stylesheet" href="/public/homepage.css" />
     <link rel="icon" href="/public/images.jpeg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
     <%- include("partial/header.ejs") %>
-    <div class="content">
-        <h1>This is home page</h1>
-        <form action="/mail" method="POST">
-            <label for="mail">Subscribe for more blogs:</label>
-            <input type="email" name="mail" id="mail" required><br>
-            <input type="submit" value="Subscribe">
-        </form>
+    <div class="frame">
+        <div class="content">
+            <b>This is</b>
+            <h1>Home page</h1>
+            <form action="/mail" method="POST">
+                <label for="mail">Subscribe for more blogs:</label>
+                <input type="email" name="mail" id="mail" required><br>
+                <a href="/blogs">View blogs</a><br>
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
     </div>
     <%- include("partial/footer.ejs") %>
 </body>
