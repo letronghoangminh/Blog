@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Detail</title>
+    <link rel="stylesheet" href="/public/partial.css" />
+    <link rel="stylesheet" href="/public/detail.css" />
+    <link rel="icon" href="/public/images.jpeg" type="image/x-icon">
+  </head>
+  <body>
+    <%- include("../partial/header.ejs") %>
+    <div class="content">
+      <div class="tops">
+        <h2 class="name"><%= blog.name %></h2>
+        <a href="/blogs/delete/<%= blog._id %>" class="delete">Delete</a>
+      </div>
+      <hr>
+      <p class="text"><%= blog.content %></p>
+      <br><br><hr>
+      <p class="author">Author: <%= blog.author %></p>
+      <p class="cate">Category: <%= blog.category %></p>
+    </div>
+    <br>
+    <br>
+    <% comments.forEach((comment) => { %>
+      <p class="comment-content"><%= comment.content %></p>
+      <p class="time"><%= comment.createdAt %> <a href="/comment/delete/<%= comment._id %>/<%= blog._id %>">Delete</a></p> 
+    <% }) %>
+    <div class="comment-create">
+      <form action="/comment/<%= blog._id %>" method="POST">
+        <p>Post new comment:</p>
+        <textarea name="content" cols="150" rows="5" required></textarea>
+        <input type="submit" value="Send comment">
+      </form>
+    </div>
+    <%- include("../partial/footer.ejs") %>
+    
+  </body>
+</html>

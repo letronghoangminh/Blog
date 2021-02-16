@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/public/partial.css" />
+    <link rel="stylesheet" href="/public/home.css" />
+    <link rel="icon" href="/public/images.jpeg" type="image/x-icon">
+  </head>
+  <body>
+    <%- include("../partial/header.ejs") %>
+    <div class="content">
+      <% blogs.forEach((blog) => { %>
+      <div class="blog">
+        <div class="titlebar">
+          <a href="/blogs/detail/<%= blog._id %>"><h3 class="name"><%= blog.name %></h3></a>
+          <p class="author">Author: <%= blog.author %></p>
+        </div>
+        <p class="snippet"><%= blog.snippet %></p>
+      </div>
+      <% }) %>
+    </div>
+    <%- include("../partial/footer.ejs") %>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+/* Header */
+
+.header {
+    width: 100%;
+    background-color: rgb(194, 192, 192);
+}
+
+.header > ul {
+    display: flex;
+    width: 1000px;
+    margin: auto;
+    list-style-type: none;
+    height: 74.4px;
+}
+
+.header > ul > li {
+    background-color: rgb(194, 192, 192);
+    padding: 20px;
+    height: 34.4px;
+}
+
+.header > ul > li:hover {
+    background-color: rgb(138, 137, 137);
+    padding: 15px 20px 25px 20px;
+    transition: 0.4s;
+}
+
+.header > ul > li > a {
+    color: rgb(61, 61, 61);
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.categories {
+    position: relative;
+    height: 74.4px;
+}
+
+
+.categories .top {
+    font-size: 30px;
+    color: rgb(61, 61, 61);
+    height: 74.4px;
+    margin-top: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.categories ul {
+    list-style-type: none;
+    position: absolute;
+    top: 79.4px; /*59.3*/
+    opacity: 0;
+    visibility: hidden;
+}
+
+.categories:hover ul {
+    opacity: 1;
+    visibility: visible;
+}
+
+.categories .drop li {
+    width: 100%;
+    background-color: rgb(212, 208, 208); 
+    padding-bottom: 20px;
+    margin-left: -20px;
+    width: 250px;
+    padding-top: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: 0.4s;
+}
+
+.categories .drop li:hover {
+    background-color: rgb(161, 161, 161);
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+
+.categories .drop li a {
+    text-decoration: none;
+    color: rgb(82, 82, 82);
+    font-size: 30px;
+}
+
+/* Footer */
+
+.footer {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(131, 131, 131);   
+    text-align: center; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+    font-size: 30px;
+}

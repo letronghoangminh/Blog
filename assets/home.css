@@ -1,0 +1,40 @@
+.content {
+    width: 1000px;
+    margin: auto;
+}
+
+.blog {
+    margin: 40px;
+}
+
+.blog .name {
+    font-size: 40px;
+    color: rgb(102, 102, 102);
+}
+
+.blog .snippet {
+    font-size: 25px;
+    margin-left: 50px;
+    display: block;
+    border-left: 3px solid red;
+    padding-left: 20px;
+    font-style: italic;
+}
+
+a {
+    text-decoration: none;
+}
+
+.titlebar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.author {
+    display: flex;
+    font-size: 35px;
+    font-weight: 800;
+    font-style: italic;
+    align-items: flex-end;
+}

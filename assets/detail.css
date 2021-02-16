@@ -1,0 +1,109 @@
+.content {
+    width: 1000px;
+    margin: auto;
+}
+
+.name {
+    font-size: 50px;
+    margin-top: 50px;
+    color: rgb(70, 70, 70);
+    width: 800px;
+}
+
+.text {
+    font-size: 30px;
+    margin-top: 80px;
+    margin-left: 70px;
+    line-height: 45px;
+}
+
+.delete {
+    margin-top: 53px;
+    width: 100px;
+    height: 50px;
+    border-radius: 7px;
+    bottom: 0;
+    right: 30px;
+    background-color:rgb(212, 212, 212);
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.delete:hover {
+    box-shadow: 2px 2px;
+    background-color: white;
+}
+
+.tops {
+    display: flex;
+    width: 100%;
+}
+
+.author {
+    font-size: 30px;
+    font-weight: 800;
+    font-style: italic;
+    float: right;
+}
+
+.cate {
+    font-size: 30px;
+    font-weight: 800;
+    font-style: italic;
+    float: left;
+}
+
+hr {
+    border-top: 2px solid black;
+}
+
+.comment-content {
+    border: 2px solid gray;
+    width: 1400px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    font-size: 25px;
+    background-color: rgb(223, 222, 222);
+}
+
+.time {
+    width: 1400px;
+    margin: auto;
+    margin-top: -30px;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.comment-create {
+    width: 1400px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.comment-create p {
+    font-size: 30px;
+}
+
+textarea {
+    border-radius: 10px;
+    font-size: 25px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100px;
+    width: 100%;
+}
+
+input[type="submit"] {
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 25px;
+    background-color: rgb(206, 204, 204);
+}
