@@ -11,11 +11,13 @@ let postLogin = (req, res, next) => {
   passport.authenticate("local", {
     successRedirect: "/profile",
     failureRedirect: "/auth/signup",
+    failureMessage: "Invalide Credential",
   })(req, res, next);
 };
 
 let getSignup = (req, res) => {
-  if (!req.isAuthenticated()) res.render("auth/signup", { message: "" });
+  if (!req.isAuthenticated())
+    res.render("auth/signup", { message: "", user: "" });
   else res.redirect("/profile");
 };
 
@@ -35,7 +37,7 @@ let postSignup = (req, res) => {
               return user.save();
             } else {
               message = "Email has already been used";
-              return res.render("auth/signup", { message });
+              return res.render("auth/signup", { message, user });
             }
           })
           .then((result) => {
@@ -48,6 +50,7 @@ let postSignup = (req, res) => {
         message = "Username has already been used";
         return res.render("auth/signup", {
           message,
+          user,
         });
       }
     })

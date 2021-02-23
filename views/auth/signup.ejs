@@ -18,9 +18,9 @@
         <h1>Sign Up</h1>
         <form action="/auth/signup" method="POST">
             <label for="">Email</label>
-            <input type="email" name="email" placeholder="Enter your email"><br><br>
+            <input type="email" name="email" placeholder="Enter your email" value="<%= user.email %>"><br><br>
             <label for="">Username</label>
-            <input type="text" name="username" placeholder="Enter your username"><br><br>
+            <input type="text" name="username" placeholder="Enter your username" value="<%= user.username %>"><br><br>
             <label for="">Password</label>
             <input type="password" name="password" placeholder="Enter your password"><br><br>
             <input type="submit" value="Sign Up">
