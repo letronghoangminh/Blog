@@ -29,26 +29,27 @@ let postSignup = (req, res) => {
   User.findOne({ username: user.username })
     .then((data) => {
       if (!data) {
-        return User.findOne({ email: user.email });
+        User.findOne({ email: user.email })
+          .then((data) => {
+            if (!data) {
+              return user.save();
+            } else {
+              message = "Email has already been used";
+              return res.render("auth/signup", { message });
+            }
+          })
+          .then((result) => {
+            passport.authenticate("local")(req, res, () => {
+              res.redirect("/profile");
+            });
+          })
+          .catch((err) => res.send(err.message));
       } else {
         message = "Username has already been used";
-        res.render("auth/signup", {
+        return res.render("auth/signup", {
           message,
         });
       }
-    })
-    .then((data) => {
-      if (!data) {
-        return user.save();
-      } else {
-        message = "Email has already been used";
-        res.render("auth/signup", { message });
-      }
-    })
-    .then((result) => {
-      passport.authenticate("local")(req, res, () => {
-        res.redirect("/profile");
-      });
     })
     .catch((err) => res.send(err.message));
 };

@@ -12,14 +12,20 @@
 <body>
     <%- include("../partial/header.ejs") %>
     <% if (message) { %>
-        <h2><%= message %></h2>
+        <h2 id="message"><%= message %></h2>
     <% } %>
-    <form action="/auth/signup" method="POST">
-        <input type="email" name="email" placeholder="Enter your email"><br>
-        <input type="text" name="username" placeholder="Enter your username"><br>
-        <input type="password" name="password" placeholder="Enter your password"><br>
-        <input type="submit" value="Sign up">
-    </form>
+    <div class="content">
+        <h1>Sign Up</h1>
+        <form action="/auth/signup" method="POST">
+            <label for="">Email</label>
+            <input type="email" name="email" placeholder="Enter your email"><br><br>
+            <label for="">Username</label>
+            <input type="text" name="username" placeholder="Enter your username"><br><br>
+            <label for="">Password</label>
+            <input type="password" name="password" placeholder="Enter your password"><br><br>
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
     <%- include("../partial/footer.ejs") %>
 </body>
 </html>
