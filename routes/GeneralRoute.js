@@ -13,6 +13,11 @@ generalRouter.get("/about", (req, res) => {
   res.render("about");
 });
 
+generalRouter.get("/profile", (req, res) => {
+  if (req.isAuthenticated()) res.render("profile", { user: req.user });
+  else res.redirect("/auth/login");
+});
+
 generalRouter.post("/mail", (req, res) => {
   mailController.sendMail(req.body.mail);
   res.redirect("/");

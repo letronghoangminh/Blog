@@ -12,7 +12,8 @@ let blogGetHome = (req, res) => {
 };
 
 let blogGetCreate = (req, res) => {
-  res.render("blogs/create");
+  if (req.isAuthenticated()) res.render("blogs/create");
+  else res.redirect("/auth/login");
 };
 
 let blogPostCreate = (req, res) => {

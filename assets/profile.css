@@ -1,0 +1,21 @@
+
+.content {
+    width: 700px;
+    margin: auto;
+}
+
+.content .title {
+    font-size: 40px;
+    margin: 20px;
+    color: rgb(73, 73, 73);
+}
+
+.content ul {
+    list-style-type: disc;
+}
+
+.content ul li {
+    font-size: 25px;
+    margin: 10px;
+    color: rgb(48, 48, 48);
+}
