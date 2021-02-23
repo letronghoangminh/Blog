@@ -12,7 +12,7 @@ let blogGetHome = (req, res) => {
 };
 
 let blogGetCreate = (req, res) => {
-  if (req.isAuthenticated()) res.render("blogs/create");
+  if (req.isAuthenticated()) res.render("blogs/create", {author: req.user.username});
   else res.redirect("/auth/login");
 };
 
