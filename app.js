@@ -9,6 +9,8 @@ const session = require("express-session");
 const passportConfig = require("./config/passport-setup");
 const authRouter = require("./routes/AuthRoute");
 const MongoDBStore = require("connect-mongodb-session")(session);
+const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 
@@ -33,6 +35,7 @@ mongoose
 
 app.set("view engine", "ejs");
 
+app.use(cors());
 app.use("/public", express.static(__dirname + "/assets"));
 app.use(
   session({
