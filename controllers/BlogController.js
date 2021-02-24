@@ -12,7 +12,8 @@ let blogGetHome = (req, res) => {
 };
 
 let blogGetCreate = (req, res) => {
-  if (req.isAuthenticated()) res.render("blogs/create", {author: req.user.username});
+  if (req.isAuthenticated())
+    res.render("blogs/create", { author: req.user.username });
   else res.redirect("/auth/login");
 };
 
@@ -21,7 +22,7 @@ let blogPostCreate = (req, res) => {
   blog
     .save()
     .then((result) => {
-      res.redirect("/");
+      res.redirect("/blogs");
     })
     .catch((err) => console.log(err));
 };
@@ -43,18 +44,24 @@ let blogGetDetail = (req, res) => {
 };
 
 let blogGetDelete = (req, res) => {
-  Blog.findByIdAndDelete(req.params.id)
-    .then((result) => {
-      return Comment.deleteMany({
-        blogId: req.params.id,
-      });
-    })
-    .then((result) => {
-      res.redirect("/blogs");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  if (req.isAuthenticated()) {
+    console.log(req.user.username);
+    Blog.findById(req.params.id)
+      .then((blog) => {
+        if (blog.author === req.user.username) {
+          return blog.remove();
+        } else res.redirect("/blogs");
+      })
+      .then((result) => {
+        return Comment.deleteMany({
+          blogId: req.params.id,
+        });
+      })
+      .then((result) => {
+        res.redirect("/blogs");
+      })
+      .catch((err) => res.send(err.message));
+  } else res.redirect("/blogs");
 };
 
 module.exports = {
