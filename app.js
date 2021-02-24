@@ -6,9 +6,9 @@ const commentRouter = require("./routes/CommentRoute");
 const generalRoutes = require("./routes/GeneralRoute");
 const passport = require("passport");
 const session = require("express-session");
-const FileStore = require("session-file-store")(session);
 const passportConfig = require("./config/passport-setup");
 const authRouter = require("./routes/AuthRoute");
+const MongoDBStore = require("connect-mongodb-session")(session);
 
 const app = express();
 
@@ -39,7 +39,12 @@ app.use(
     secret: "dakwabuhbuhlmao",
     resave: true,
     saveUninitialized: false,
-    store: new FileStore({logFn: function(){}}),
+    store: new MongoDBStore({
+      uri:
+        "mongodb+srv://root:root@cluster0.8g2jv.mongodb.net/BlogDatabase?retryWrites=true&w=majority",
+      collection: "sessions",
+      connectionOptions: { useNewUrlParser: true, useUnifiedTopology: true },
+    }),
   })
 );
 app.use(passport.initialize());
@@ -59,4 +64,3 @@ app.use("/comment", commentRouter);
 
 //General routes
 app.use(generalRoutes);
-
